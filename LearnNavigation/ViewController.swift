@@ -19,6 +19,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     var lastOffset:CGPoint? = CGPointMake(0, 0)
     var lastOffsetCapture:NSTimeInterval? = 0
     
+    var isScrollUp: Bool = false
+    var isScrollDown: Bool = false
     var isScrollingFast: Bool = false
     
     override func viewDidLoad() {
@@ -92,11 +94,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.detectVelocity(scrollView.contentOffset)
         self.detectReachingTopEdge(scrollView.contentOffset)
+        self.detectScrollingDirection(scrollView.contentOffset)
         self.adjustNavigationBarTopConstriant(scrollView.contentOffset)
     }
     
     func detectReachingTopEdge(currentOffset: CGPoint) {
         self.isReachedTopEdge = currentOffset.y > 0
+    }
+    
+    func detectScrollingDirection(currentOffset: CGPoint) {
+        self.isScrollUp = self.lastOffset?.y > currentOffset.y
+        self.isScrollDown = self.lastOffset?.y < currentOffset.y
     }
     
     func detectVelocity(currentOffset: CGPoint) {
