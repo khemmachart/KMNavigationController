@@ -13,10 +13,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var navBarTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    var navBarAnimating = false
+    var isNavBarAnimating: Bool = false
+    var isReachedTopEdge: Bool = false
     
     var lastOffset:CGPoint? = CGPointMake(0, 0)
     var lastOffsetCapture:NSTimeInterval? = 0
+    
     var isScrollingFast: Bool = false
     
     override func viewDidLoad() {
@@ -79,17 +81,22 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func layoutIfNeededWithAnimation() {
-        self.navBarAnimating = true
+        self.isNavBarAnimating = true
         UIView.animateWithDuration(0.25, animations: {
             self.view.layoutIfNeeded()
         }) { (success) in
-            self.navBarAnimating = false
+            self.isNavBarAnimating = false
         }
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.detectVelocity(scrollView.contentOffset)
+        self.detectReachingTopEdge(scrollView.contentOffset)
         self.adjustNavigationBarTopConstriant(scrollView.contentOffset)
+    }
+    
+    func detectReachingTopEdge(currentOffset: CGPoint) {
+        self.isReachedTopEdge = currentOffset.y > 0
     }
     
     func detectVelocity(currentOffset: CGPoint) {
@@ -103,6 +110,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             let scrollSpeed = fabsf(Float(scrollSpeedNotAbs))  // absolute value
     
             self.isScrollingFast = scrollSpeed > 1.25 ? true : false
+            // self.isScrollingFast ? print("Fast") : print("Slow")
             self.lastOffset = currentOffset
             self.lastOffsetCapture = currentTime
         }
@@ -110,13 +118,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     func adjustNavigationBarTopConstriant(currentOffset: CGPoint) {
 
-        if (navBarAnimating) {
+        if (self.isNavBarAnimating) {
             return
         }
         
-        let isScrollingUp = currentOffset.y > 0
-        
-        if (isScrollingUp) {
+        if (self.isReachedTopEdge) {
             let topConstraint = -self.navigationBar.frame.height - 44 + 20
             self.navBarTopConstraint.constant = topConstraint
         } else {
