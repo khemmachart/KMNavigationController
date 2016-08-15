@@ -99,7 +99,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func detectReachingTopEdge(currentOffset: CGPoint) {
-        self.isReachedTopEdge = currentOffset.y > 0
+        self.isReachedTopEdge = currentOffset.y <= 0
     }
     
     func detectScrollingDirection(currentOffset: CGPoint) {
@@ -131,10 +131,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         
         if (self.isReachedTopEdge) {
+            self.navBarTopConstraint.constant = 0
+        } else {
             let topConstraint = -self.navigationBar.frame.height - 44 + 20
             self.navBarTopConstraint.constant = topConstraint
-        } else {
-            self.navBarTopConstraint.constant = 0
         }
         
         self.layoutIfNeededWithAnimation()
