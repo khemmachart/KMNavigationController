@@ -140,13 +140,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             let topConstraint = -self.navigationBar.frame.height - 44 + 20
             self.navBarTopConstraint.constant = topConstraint
             self.isHidden = true
+            self.layoutIfNeededWithAnimation()
         }
         else if (shouldShowNavBar) {
             self.navBarTopConstraint.constant = 0
             self.isHidden = false
+            self.layoutIfNeededWithAnimation()
         }
-        
-        self.layoutIfNeededWithAnimation()
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
