@@ -15,6 +15,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     var navBarAnimating = false
     
+    var lastOffset:CGPoint? = CGPointMake(0, 0)
+    var lastOffsetCapture:NSTimeInterval? = 0
+    var isScrollingFast: Bool = false
+    
     override func viewDidLoad() {
         
         let frameWidth = self.view.frame.size.width
@@ -84,17 +88,35 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let isScrollUp = scrollView.contentOffset.y > 0
-        self.adjustNavigationBarTopConstriant(isScrollUp)
+        self.detectVelocity(scrollView.contentOffset)
+        self.adjustNavigationBarTopConstriant(scrollView.contentOffset)
     }
     
-    func adjustNavigationBarTopConstriant(isScrollUp: Bool) {
+    func detectVelocity(currentOffset: CGPoint) {
+        let currentTime = NSDate().timeIntervalSinceReferenceDate
+        let timeDiff = currentTime - lastOffsetCapture!
+        let captureInterval = 0.1
         
+        if(timeDiff > captureInterval) {
+            let distance = currentOffset.y - lastOffset!.y     // calc distance
+            let scrollSpeedNotAbs = (distance * 10) / 1000     // pixels per ms*10
+            let scrollSpeed = fabsf(Float(scrollSpeedNotAbs))  // absolute value
+    
+            self.isScrollingFast = scrollSpeed > 1.25 ? true : false
+            self.lastOffset = currentOffset
+            self.lastOffsetCapture = currentTime
+        }
+    }
+    
+    func adjustNavigationBarTopConstriant(currentOffset: CGPoint) {
+
         if (navBarAnimating) {
             return
         }
         
-        if (isScrollUp) {
+        let isScrollingUp = currentOffset.y > 0
+        
+        if (isScrollingUp) {
             let topConstraint = -self.navigationBar.frame.height - 44 + 20
             self.navBarTopConstraint.constant = topConstraint
         } else {
@@ -115,7 +137,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return 100
     }
 }
 
