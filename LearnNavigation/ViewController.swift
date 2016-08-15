@@ -19,9 +19,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     var lastOffset:CGPoint? = CGPointMake(0, 0)
     var lastOffsetCapture:NSTimeInterval? = 0
     
-    var isScrollUp: Bool = false
     var isScrollDown: Bool = false
     var isScrollingFast: Bool = false
+    
+    var isScrollUp: Bool = false
+    var isHidden: Bool = false
     
     override func viewDidLoad() {
         
@@ -131,15 +133,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         
         let isFastScrollUp   = self.isScrollUp && self.isScrollingFast
-        let shouldHideNavBar = self.isScrollDown && !self.isReachedTopEdge
-        let shouldShowNavBar = self.isReachedTopEdge || isFastScrollUp
+        let shouldHideNavBar = !self.isHidden && self.isScrollDown && !self.isReachedTopEdge
+        let shouldShowNavBar = self.isHidden && self.isReachedTopEdge || isFastScrollUp
         
         if (shouldHideNavBar) {
             let topConstraint = -self.navigationBar.frame.height - 44 + 20
             self.navBarTopConstraint.constant = topConstraint
+            self.isHidden = true
         }
         else if (shouldShowNavBar) {
             self.navBarTopConstraint.constant = 0
+            self.isHidden = false
         }
         
         self.layoutIfNeededWithAnimation()
