@@ -130,11 +130,16 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             return
         }
         
-        if (self.isReachedTopEdge) {
-            self.navBarTopConstraint.constant = 0
-        } else {
+        let isFastScrollUp   = self.isScrollUp && self.isScrollingFast
+        let shouldHideNavBar = self.isScrollDown && !self.isReachedTopEdge
+        let shouldShowNavBar = self.isReachedTopEdge || isFastScrollUp
+        
+        if (shouldHideNavBar) {
             let topConstraint = -self.navigationBar.frame.height - 44 + 20
             self.navBarTopConstraint.constant = topConstraint
+        }
+        else if (shouldShowNavBar) {
+            self.navBarTopConstraint.constant = 0
         }
         
         self.layoutIfNeededWithAnimation()
