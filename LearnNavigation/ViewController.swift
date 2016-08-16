@@ -65,7 +65,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let rightButton1 = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: nil)
         let rightButton2 = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: nil)
         let navigationItem = UINavigationItem()
-        navigationItem.title = "AIS"
         navigationItem.rightBarButtonItems = [rightButton1, rightButton2]
         
         self.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
