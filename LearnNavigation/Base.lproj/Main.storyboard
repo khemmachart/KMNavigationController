@@ -65,6 +65,7 @@
                     </view>
                     <connections>
                         <outlet property="navBarTopConstraint" destination="qEV-Ch-BMh" id="1lC-t9-E3e"/>
+                        <outlet property="navigationBar" destination="dPk-Sn-tsx" id="v40-Nm-tKh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKP-Gt-sqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
