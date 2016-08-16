@@ -1,71 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="82n-Bz-p9c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FW1-jg-bYx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="LwK-Jc-gPz">
+        <scene sceneID="I71-yK-tng">
             <objects>
-                <viewController id="82n-Bz-p9c" customClass="ViewController" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FW1-jg-bYx" customClass="ViewController" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DMR-gJ-oLo"/>
-                        <viewControllerLayoutGuide type="bottom" id="eAV-lX-LhN"/>
+                        <viewControllerLayoutGuide type="top" id="a6L-jx-v7t"/>
+                        <viewControllerLayoutGuide type="bottom" id="hC6-ZS-hbJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VFD-hk-HcT">
+                    <view key="view" contentMode="scaleToFill" id="ZKD-Lg-Hzk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J3n-Ud-2oc">
-                                <rect key="frame" x="0.0" y="152" width="600" height="448"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPk-Sn-tsx" customClass="KMNavigationBar" customModule="LearnNavigation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="185"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="vC2-1L-X7h"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DWx-eh-b6a">
+                                <rect key="frame" x="0.0" y="185" width="600" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="eAl-mA-qy6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="QGQ-jd-0cc">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eAl-mA-qy6" id="iCy-ue-OJy">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QGQ-jd-0cc" id="nSw-XP-chE">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="82n-Bz-p9c" id="FiV-iE-ake"/>
-                                    <outlet property="delegate" destination="82n-Bz-p9c" id="aWJ-gE-hUY"/>
+                                    <outlet property="dataSource" destination="FW1-jg-bYx" id="DOY-IW-FVN"/>
+                                    <outlet property="delegate" destination="FW1-jg-bYx" id="oQ0-g1-1Nf"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4s-Pn-uvp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="iCj-rO-X56"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Title" id="vMa-rr-lHG"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="p4s-Pn-uvp" firstAttribute="top" secondItem="VFD-hk-HcT" secondAttribute="top" id="7xd-SW-mNY"/>
-                            <constraint firstItem="J3n-Ud-2oc" firstAttribute="top" secondItem="p4s-Pn-uvp" secondAttribute="bottom" constant="88" id="PvS-en-h1D"/>
-                            <constraint firstItem="eAV-lX-LhN" firstAttribute="top" secondItem="J3n-Ud-2oc" secondAttribute="bottom" id="U0l-sM-jGZ"/>
-                            <constraint firstAttribute="trailing" secondItem="J3n-Ud-2oc" secondAttribute="trailing" id="YXc-Xj-XSB"/>
-                            <constraint firstItem="J3n-Ud-2oc" firstAttribute="leading" secondItem="VFD-hk-HcT" secondAttribute="leading" id="dRS-Pe-TMp"/>
-                            <constraint firstAttribute="trailing" secondItem="p4s-Pn-uvp" secondAttribute="trailing" id="f5R-x6-R5q"/>
-                            <constraint firstItem="p4s-Pn-uvp" firstAttribute="leading" secondItem="VFD-hk-HcT" secondAttribute="leading" id="leI-mW-ld0"/>
+                            <constraint firstAttribute="trailing" secondItem="dPk-Sn-tsx" secondAttribute="trailing" id="6cD-kN-9dm"/>
+                            <constraint firstItem="dPk-Sn-tsx" firstAttribute="leading" secondItem="ZKD-Lg-Hzk" secondAttribute="leadingMargin" id="8rP-Ay-7Cr"/>
+                            <constraint firstAttribute="bottom" secondItem="DWx-eh-b6a" secondAttribute="bottom" id="Sbx-F1-Ofx"/>
+                            <constraint firstItem="dPk-Sn-tsx" firstAttribute="leading" secondItem="ZKD-Lg-Hzk" secondAttribute="leading" id="eK1-XT-3ll"/>
+                            <constraint firstItem="DWx-eh-b6a" firstAttribute="leading" secondItem="ZKD-Lg-Hzk" secondAttribute="leading" id="gKS-Ux-TC2"/>
+                            <constraint firstAttribute="trailing" secondItem="DWx-eh-b6a" secondAttribute="trailing" id="itO-pY-MFZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dPk-Sn-tsx" secondAttribute="trailing" id="jaT-cV-tAN"/>
+                            <constraint firstItem="dPk-Sn-tsx" firstAttribute="top" secondItem="ZKD-Lg-Hzk" secondAttribute="topMargin" id="qEV-Ch-BMh"/>
+                            <constraint firstItem="DWx-eh-b6a" firstAttribute="top" secondItem="dPk-Sn-tsx" secondAttribute="bottom" id="sGp-Qg-Vf7"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8rP-Ay-7Cr"/>
+                                <exclude reference="jaT-cV-tAN"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="HWo-Rj-VTt"/>
                     <connections>
-                        <outlet property="navBarTopConstraint" destination="7xd-SW-mNY" id="8v8-d2-Qkt"/>
-                        <outlet property="navigationBar" destination="p4s-Pn-uvp" id="dqs-Cc-PuG"/>
+                        <outlet property="navBarTopConstraint" destination="qEV-Ch-BMh" id="1lC-t9-E3e"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzl-1x-a2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKP-Gt-sqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926" y="1014"/>
+            <point key="canvasLocation" x="1226" y="1014"/>
         </scene>
     </scenes>
 </document>
