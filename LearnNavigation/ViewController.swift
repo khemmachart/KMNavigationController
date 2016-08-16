@@ -13,20 +13,29 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var navBarTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationBar: KMNavigationBar!
     
+    var stickBackgrounImageView: Bool = true
+    var stickInformationView: Bool = true
+    var stickPageMenuView: Bool = true
+    
+    var showStatusBar: Bool = true
+    
+    var isNavigationBarHidden: Bool = false
     var isNavBarAnimating: Bool = false
+    
     var isReachedTopEdge: Bool = false
     
-    var lastOffset:CGPoint? = CGPointMake(0, 0)
-    var lastOffsetCapture:NSTimeInterval? = 0
+    var lastOffset: CGPoint? = CGPointMake(0, 0)
+    var lastOffsetCapture: NSTimeInterval? = 0
+    
+    var scrollSpeedRate: Float = 1.0
     
     var isScrollDown: Bool = false
     var isScrollingFast: Bool = false
-    
     var isScrollUp: Bool = false
-    var isHidden: Bool = false
     
     override func viewDidLoad() {
-        
+        self.stickBackgrounImageView = false
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     func layoutIfNeededWithAnimation() {
@@ -64,7 +73,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             let scrollSpeedNotAbs = (distance * 10) / 1000     // pixels per ms*10
             let scrollSpeed = fabsf(Float(scrollSpeedNotAbs))  // absolute value
     
-            self.isScrollingFast = scrollSpeed > 1.25 ? true : false
+            self.isScrollingFast = scrollSpeed > self.scrollSpeedRate ? true : false
             // self.isScrollingFast ? print("Fast") : print("Slow")
             self.lastOffset = currentOffset
             self.lastOffsetCapture = currentTime
@@ -73,25 +82,52 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     func adjustNavigationBarTopConstriant(currentOffset: CGPoint) {
 
+        if (self.stickBackgrounImageView) {
+            return
+        }
         if (self.isNavBarAnimating) {
             return
         }
         
         let isFastScrollUp   = self.isScrollUp && self.isScrollingFast
-        let shouldHideNavBar = !self.isHidden && self.isScrollDown && !self.isReachedTopEdge
-        let shouldShowNavBar = self.isHidden && self.isReachedTopEdge || isFastScrollUp
+        let shouldHideNavBar = !self.isNavigationBarHidden && self.isScrollDown && !self.isReachedTopEdge
+        let shouldShowNavBar = self.isNavigationBarHidden && self.isReachedTopEdge || isFastScrollUp
         
         if (shouldHideNavBar) {
-            let topConstraint = CGFloat(-88.0)
-            self.navBarTopConstraint.constant = topConstraint
-            self.isHidden = true
+            self.navBarTopConstraint.constant = self.calculateNavigationBarTopConstraintAfterHidden()
+            self.isNavigationBarHidden = true
             self.layoutIfNeededWithAnimation()
         }
         else if (shouldShowNavBar) {
             self.navBarTopConstraint.constant = 0
-            self.isHidden = false
+            self.isNavigationBarHidden = false
             self.layoutIfNeededWithAnimation()
         }
+    }
+    
+    func calculateNavigationBarTopConstraintAfterHidden() -> CGFloat {
+        
+        var hiddenConstraint: CGFloat = 0
+        
+        if (self.prefersStatusBarHidden()) {
+            hiddenConstraint += 20
+        }
+        
+        if (!self.stickBackgrounImageView) {
+            hiddenConstraint += 88
+            if (!self.stickInformationView && self.prefersStatusBarHidden()) {
+                hiddenConstraint += 44
+                if (!self.stickPageMenuView) {
+                    hiddenConstraint += 33
+                }
+            }
+        }
+        
+        return -hiddenConstraint
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return !self.showStatusBar
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
