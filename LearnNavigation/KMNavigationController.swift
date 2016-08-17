@@ -12,6 +12,7 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var navBarTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationBar: KMNavigationBar!
+    @IBOutlet weak var pageMenuView: UIView!
     
     var stickBackgrounImageView: Bool = true
     var stickInformationView: Bool = true
@@ -62,7 +63,7 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
                                     frame: self.getPageMenuContainerFrame(),
                                     pageMenuOptions: parameters)
         
-        self.view.addSubview(pageMenu.view)
+        self.pageMenuView.addSubview(pageMenu.view)
     }
     
     func getSubControllersFor(titles: [String], delegate: UIViewController) -> [UIViewController] {
@@ -71,27 +72,20 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         for (index, element) in titles.enumerate()  {
-            let viewController = storyboard.instantiateViewControllerWithIdentifier("MyAISTableViewController")
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("MyAISTableViewController") as! MyAISTableViewController
             viewController.title = element
+            viewController.delegate = self
             viewController.view.backgroundColor = (index%2==0) ? UIColor.redColor() : UIColor.blueColor()
             controllers.append(viewController)
         }
         
         return controllers
     }
-
     
     func getPageMenuContainerFrame() -> CGRect {
-        
-        let orderButtonHeight: CGFloat = 49
-        
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        
-        let pageMenuHeight = screenHeight - orderButtonHeight
-        
-        return CGRectMake(0, self.navigationBar.frame.height, screenWidth, pageMenuHeight)
+        let screenWidth = self.pageMenuView.frame.width
+        let screenHeight = self.pageMenuView.frame.height
+        return CGRectMake(0, 0, screenWidth, screenHeight)
     }
     
     func layoutIfNeededWithAnimation() {

@@ -10,8 +10,15 @@ import UIKit
 
 class MyAISTableViewController: UIViewController {
     
-    override func viewDidLoad() {
-        
+    var delegate: KMNavigationController?
+}
+
+extension MyAISTableViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if let delegate = self.delegate {
+            delegate.scrollViewDidScroll(scrollView)
+        }
     }
 }
 
