@@ -33,9 +33,65 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     var isScrollingFast: Bool = false
     var isScrollUp: Bool = false
     
+    var pageMenu: CAPSPageMenu!
+    
     override func viewDidLoad() {
         self.stickBackgrounImageView = false
         self.setNeedsStatusBarAppearanceUpdate()
+        self.initPageMenu()
+    }
+    
+    func initPageMenu() {
+        let controllerArray = self.getSubControllersFor(["Home", "Package", "Balance", "Payment", "Transfer"], delegate: self)
+        let parameters: [CAPSPageMenuOption] = [
+            // .UseMenuLikeSegmentedControl(true),
+            .AddBottomMenuHairline(true),
+            
+            .MenuItemFont(UIFont.systemFontOfSize(12)),
+            .BottomMenuHairlineColor(UIColor.blackColor()),
+            .ScrollMenuBackgroundColor(UIColor.whiteColor()),
+            .SelectionIndicatorColor(UIColor.blackColor()),
+            .SelectedMenuItemLabelColor(UIColor.blackColor()),
+            
+            .MenuHeight(38.0),
+            .SelectionIndicatorHeight(3.0),
+            .MenuItemSeparatorPercentageHeight(0.0),
+            ]
+        
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray,
+                                    frame: self.getPageMenuContainerFrame(),
+                                    pageMenuOptions: parameters)
+        
+        self.view.addSubview(pageMenu.view)
+    }
+    
+    func getSubControllersFor(titles: [String], delegate: UIViewController) -> [UIViewController] {
+        
+        var controllers: [UIViewController] = []
+        // let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        for (index, element) in titles.enumerate()  {
+            let viewController = UIViewController()
+            viewController.title = element
+            viewController.view.backgroundColor = (index%2==0) ? UIColor.redColor() : UIColor.blueColor()
+            controllers.append(viewController)
+        }
+        
+        return controllers
+    }
+
+    
+    func getPageMenuContainerFrame() -> CGRect {
+        
+        let orderButtonHeight: CGFloat = 49
+        
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        let pageMenuHeight = screenHeight - orderButtonHeight
+        
+        return CGRectMake(0, self.navigationBar.frame.height, screenWidth, pageMenuHeight)
     }
     
     func layoutIfNeededWithAnimation() {
