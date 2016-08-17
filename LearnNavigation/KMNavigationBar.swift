@@ -13,6 +13,8 @@ import UIKit
     var view: UIView!
     var isHiddenBar: Bool = false
     
+    @IBOutlet weak var statusBarTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var statusBarOverlayView: UIView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var currentMenuTitleLabel: UILabel!
@@ -83,16 +85,17 @@ import UIKit
         self.currentMenuTitleLabel.text = title
     }
     
-    func hidden(isHidden: Bool, withAnimation animation: Bool) {
+    func hidden(isHidden: Bool, withAnimation animation: Bool, withNavBarTopConstraint navBarTopConstraint: CGFloat) {
         self.isHiddenBar = isHidden
         if (animation) {
-            self.animateViewWhenHidden(isHidden)
+            self.animateViewWhenHidden(isHidden, withNavBarTopConstraint: navBarTopConstraint)
         }
     }
     
-    func animateViewWhenHidden(isHidden: Bool) {
+    func animateViewWhenHidden(isHidden: Bool, withNavBarTopConstraint navBarTopConstraint: CGFloat) {
         UIView.animateWithDuration(0.25, animations: {
             self.currentMenuTitleLabel.alpha = isHidden ? 0 : 1
+            self.statusBarTopConstraint.constant = isHidden ? -navBarTopConstraint : 0
         })
     }
 }

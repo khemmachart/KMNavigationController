@@ -10,6 +10,8 @@
                 <outlet property="backgroundImageView" destination="sgZ-v9-mHW" id="0PR-ci-VEm"/>
                 <outlet property="currentMenuTitleLabel" destination="44Z-uR-wMP" id="R9m-07-e3k"/>
                 <outlet property="navigationBar" destination="Vvp-Kv-ix7" id="gkE-sH-kBf"/>
+                <outlet property="statusBarOverlayView" destination="1ja-t7-Lob" id="wG4-bQ-4vA"/>
+                <outlet property="statusBarTopConstraint" destination="apK-Oh-nKL" id="8Wf-lM-HNO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -41,7 +43,7 @@
                         <navigationItem title="Title" id="Y2Z-fV-UAs"/>
                     </items>
                 </navigationBar>
-                <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ja-t7-Lob" userLabel="Status Bar Overlay View">
+                <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ja-t7-Lob">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>

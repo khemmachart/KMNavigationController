@@ -151,14 +151,15 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
         let shouldShowNavBar = self.isReachedTopEdge || isFastScrollUp
         
         if (shouldHideNavBar && !self.navigationBar.isHiddenBar) {
-            self.navBarTopConstraint.constant = self.calculateNavigationBarTopConstraintAfterHidden()
-            self.navigationBar.hidden(true, withAnimation: true)
+            let navBarTopConstraint = self.calculateNavigationBarTopConstraintAfterHidden()
+            self.navBarTopConstraint.constant = navBarTopConstraint
+            self.navigationBar.hidden(true, withAnimation: true, withNavBarTopConstraint: navBarTopConstraint)
             self.layoutIfNeededWithAnimation()
             
         }
         else if (shouldShowNavBar && self.navigationBar.isHiddenBar) {
             self.navBarTopConstraint.constant = 0
-            self.navigationBar.hidden(false, withAnimation: true)
+            self.navigationBar.hidden(false, withAnimation: true, withNavBarTopConstraint: 0)
             self.layoutIfNeededWithAnimation()
         }
     }
