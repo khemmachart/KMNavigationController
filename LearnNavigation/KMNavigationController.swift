@@ -45,8 +45,9 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
     func initPageMenu() {
         let controllerArray = self.getSubControllersFor(["Home", "Package", "Balance", "Payment", "Transfer"], delegate: self)
         let parameters: [CAPSPageMenuOption] = [
-            // .UseMenuLikeSegmentedControl(true),
+            // .UseMenuLikeSegmentedControl(false),
             .AddBottomMenuHairline(true),
+            .EnableHorizontalBounce(false),
             
             .MenuItemFont(UIFont.systemFontOfSize(12)),
             .BottomMenuHairlineColor(UIColor.blackColor()),
@@ -54,7 +55,7 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
             .SelectionIndicatorColor(UIColor.blackColor()),
             .SelectedMenuItemLabelColor(UIColor.blackColor()),
             
-            .MenuHeight(38.0),
+            .MenuHeight(35.0),
             .SelectionIndicatorHeight(3.0),
             .MenuItemSeparatorPercentageHeight(0.0),
             ]

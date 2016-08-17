@@ -13,11 +13,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="219"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="267"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-v9-mHW">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="175"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="223"/>
                     <color key="backgroundColor" red="0.90923690800000001" green="0.81068706509999999" blue="0.81462281940000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" priority="800" constant="108" id="TnC-8r-suK"/>
@@ -48,7 +48,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0E-QJ-lhV" userLabel="Information VIew">
-                    <rect key="frame" x="0.0" y="175" width="600" height="44"/>
+                    <rect key="frame" x="0.0" y="223" width="600" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomas Urban Timberland" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfS-ct-Z0l">
                             <rect key="frame" x="16" y="0.0" width="156" height="44"/>
@@ -99,7 +99,7 @@
                     <exclude reference="wSF-Op-BuJ"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="279" y="154.5"/>
+            <point key="canvasLocation" x="279" y="178.5"/>
         </view>
     </objects>
     <resources>
