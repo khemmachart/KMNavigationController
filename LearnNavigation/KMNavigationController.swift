@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KMNavigationController: UIViewController, UIScrollViewDelegate {
+class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMenuDelegate {
     
     @IBOutlet weak var navBarTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationBar: KMNavigationBar!
@@ -34,16 +34,18 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
     var isScrollingFast: Bool = false
     var isScrollUp: Bool = false
     
+    var titles = ["Home", "Package", "Balance", "Payment", "Transfer"]
     var pageMenu: CAPSPageMenu!
     
     override func viewDidLoad() {
         self.stickBackgrounImageView = false
         self.setNeedsStatusBarAppearanceUpdate()
         self.initPageMenu()
+        self.navigationBar.updateCurrentMenuLabel(titles[0])
     }
     
     func initPageMenu() {
-        let controllerArray = self.getSubControllersFor(["Home", "Package", "Balance", "Payment", "Transfer"], delegate: self)
+        let controllerArray = self.getSubControllersFor(titles, delegate: self)
         let parameters: [CAPSPageMenuOption] = [
             // .UseMenuLikeSegmentedControl(false),
             .AddBottomMenuHairline(true),
@@ -64,8 +66,13 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
         pageMenu = CAPSPageMenu(viewControllers: controllerArray,
                                     frame: self.getPageMenuContainerFrame(),
                                     pageMenuOptions: parameters)
+        pageMenu.delegate = self
         
         self.contentView.addSubview(pageMenu.view)
+    }
+    
+    func willMoveToPage(controller: UIViewController, index: Int){
+        self.navigationBar.updateCurrentMenuLabel(titles[index])
     }
     
     func getSubControllersFor(titles: [String], delegate: UIViewController) -> [UIViewController] {
