@@ -14,6 +14,7 @@ import UIKit
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var currentMenuTitleLabel: UILabel!
     
     @IBInspectable var image: UIImage? {
         get {
@@ -75,5 +76,9 @@ import UIKit
             // NSFontAttributeName: UIFont.appNavBarButton(),
             NSForegroundColorAttributeName: UIColor.whiteColor()],
                                                             forState: UIControlState.Normal)
+    }
+    
+    func updateCurrentMenuLabel(title: String) {
+        self.currentMenuTitleLabel.text = title
     }
 }

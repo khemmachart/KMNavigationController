@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KMNavigationBar" customModule="LearnNavigation" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundImageView" destination="sgZ-v9-mHW" id="0PR-ci-VEm"/>
+                <outlet property="currentMenuTitleLabel" destination="44Z-uR-wMP" id="R9m-07-e3k"/>
                 <outlet property="navigationBar" destination="Vvp-Kv-ix7" id="gkE-sH-kBf"/>
             </connections>
         </placeholder>
@@ -47,6 +48,15 @@
                         <constraint firstAttribute="height" constant="20" id="Lj2-rX-IxT"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44Z-uR-wMP">
+                    <rect key="frame" x="16" y="179" width="59.5" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="zsj-Aq-sJI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0E-QJ-lhV" userLabel="Information VIew">
                     <rect key="frame" x="0.0" y="223" width="600" height="44"/>
                     <subviews>
@@ -81,6 +91,7 @@
                 <constraint firstItem="sgZ-v9-mHW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ASD-m2-h0C"/>
                 <constraint firstItem="1ja-t7-Lob" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ciw-wW-Xb8"/>
                 <constraint firstAttribute="bottom" secondItem="S0E-QJ-lhV" secondAttribute="bottom" id="Eik-tB-XQP"/>
+                <constraint firstItem="S0E-QJ-lhV" firstAttribute="top" secondItem="44Z-uR-wMP" secondAttribute="bottom" id="G24-bI-OhM"/>
                 <constraint firstAttribute="trailing" secondItem="S0E-QJ-lhV" secondAttribute="trailing" id="UVr-jM-bfY"/>
                 <constraint firstItem="S0E-QJ-lhV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UYR-59-WI5"/>
                 <constraint firstItem="Vvp-Kv-ix7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WPC-Cs-hxO"/>
@@ -91,6 +102,7 @@
                 <constraint firstAttribute="trailing" secondItem="Vvp-Kv-ix7" secondAttribute="trailing" id="pAB-JB-MpT"/>
                 <constraint firstItem="Vvp-Kv-ix7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r3b-mm-fXm"/>
                 <constraint firstAttribute="bottom" secondItem="sgZ-v9-mHW" secondAttribute="bottom" id="wSF-Op-BuJ"/>
+                <constraint firstItem="44Z-uR-wMP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xMc-Ld-X1r"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
