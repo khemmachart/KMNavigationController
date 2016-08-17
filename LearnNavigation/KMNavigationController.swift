@@ -12,7 +12,7 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var navBarTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationBar: KMNavigationBar!
-    @IBOutlet weak var pageMenuView: UIView!
+    @IBOutlet weak var contentView: UIView!
     
     var stickBackgrounImageView: Bool = true
     var stickInformationView: Bool = true
@@ -50,9 +50,10 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
             .EnableHorizontalBounce(false),
             
             .MenuItemFont(UIFont.systemFontOfSize(12)),
-            .BottomMenuHairlineColor(UIColor.blackColor()),
+            .BottomMenuHairlineColor(UIColor.lightGrayColor()),
+            .UnselectedMenuItemLabelColor(UIColor.greenColor()),
             .ScrollMenuBackgroundColor(UIColor.whiteColor()),
-            .SelectionIndicatorColor(UIColor.blackColor()),
+            .SelectionIndicatorColor(UIColor.greenColor()),
             .SelectedMenuItemLabelColor(UIColor.blackColor()),
             
             .MenuHeight(35.0),
@@ -64,7 +65,7 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
                                     frame: self.getPageMenuContainerFrame(),
                                     pageMenuOptions: parameters)
         
-        self.pageMenuView.addSubview(pageMenu.view)
+        self.contentView.addSubview(pageMenu.view)
     }
     
     func getSubControllersFor(titles: [String], delegate: UIViewController) -> [UIViewController] {
@@ -84,9 +85,9 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
     }
     
     func getPageMenuContainerFrame() -> CGRect {
-        let screenWidth = self.pageMenuView.frame.width
-        let screenHeight = self.pageMenuView.frame.height
-        return CGRectMake(0, 0, screenWidth, screenHeight)
+        let width  = self.contentView.frame.width
+        let height = self.contentView.frame.height
+        return CGRectMake(0, 0, width, height)
     }
     
     func layoutIfNeededWithAnimation() {
