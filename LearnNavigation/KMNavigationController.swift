@@ -20,9 +20,7 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
     
     var showStatusBar: Bool = true
     
-    var isNavigationBarHidden: Bool = false
     var isNavBarAnimating: Bool = false
-    
     var isReachedTopEdge: Bool = false
     
     var lastOffset: CGPoint? = CGPointMake(0, 0)
@@ -149,17 +147,18 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
         }
         
         let isFastScrollUp   = self.isScrollUp && self.isScrollingFast
-        let shouldHideNavBar = !self.isNavigationBarHidden && self.isScrollDown && !self.isReachedTopEdge
-        let shouldShowNavBar = self.isNavigationBarHidden && self.isReachedTopEdge || isFastScrollUp
+        let shouldHideNavBar = self.isScrollDown && !self.isReachedTopEdge
+        let shouldShowNavBar = self.isReachedTopEdge || isFastScrollUp
         
-        if (shouldHideNavBar) {
+        if (shouldHideNavBar && !self.navigationBar.isHiddenBar) {
             self.navBarTopConstraint.constant = self.calculateNavigationBarTopConstraintAfterHidden()
-            self.isNavigationBarHidden = true
+            self.navigationBar.hidden(true, withAnimation: true)
             self.layoutIfNeededWithAnimation()
+            
         }
-        else if (shouldShowNavBar) {
+        else if (shouldShowNavBar && self.navigationBar.isHiddenBar) {
             self.navBarTopConstraint.constant = 0
-            self.isNavigationBarHidden = false
+            self.navigationBar.hidden(false, withAnimation: true)
             self.layoutIfNeededWithAnimation()
         }
     }

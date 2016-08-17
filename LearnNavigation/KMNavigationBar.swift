@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable class KMNavigationBar: UIView {
     
     var view: UIView!
+    var isHiddenBar: Bool = false
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -80,5 +81,9 @@ import UIKit
     
     func updateCurrentMenuLabel(title: String) {
         self.currentMenuTitleLabel.text = title
+    }
+    
+    func hidden(isHidden: Bool, withAnimation animation: Bool) {
+        self.isHiddenBar = isHidden
     }
 }
