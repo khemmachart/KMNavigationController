@@ -51,9 +51,9 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
             
             .MenuItemFont(UIFont.systemFontOfSize(12)),
             .BottomMenuHairlineColor(UIColor.lightGrayColor()),
-            .UnselectedMenuItemLabelColor(UIColor.greenColor()),
+            .UnselectedMenuItemLabelColor(UIColor(red: 141/255, green: 198/255, blue: 63/255, alpha: 1)),
             .ScrollMenuBackgroundColor(UIColor.whiteColor()),
-            .SelectionIndicatorColor(UIColor.greenColor()),
+            .SelectionIndicatorColor(UIColor(red: 141/255, green: 198/255, blue: 63/255, alpha: 1)),
             .SelectedMenuItemLabelColor(UIColor.blackColor()),
             
             .MenuHeight(35.0),
