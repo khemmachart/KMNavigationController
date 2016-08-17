@@ -85,5 +85,14 @@ import UIKit
     
     func hidden(isHidden: Bool, withAnimation animation: Bool) {
         self.isHiddenBar = isHidden
+        if (animation) {
+            self.animateViewWhenHidden(isHidden)
+        }
+    }
+    
+    func animateViewWhenHidden(isHidden: Bool) {
+        UIView.animateWithDuration(0.25, animations: {
+            self.currentMenuTitleLabel.alpha = isHidden ? 0 : 1
+        })
     }
 }
