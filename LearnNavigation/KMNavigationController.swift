@@ -26,7 +26,7 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
     var lastOffset: CGPoint? = CGPointMake(0, 0)
     var lastOffsetCapture: NSTimeInterval? = 0
     
-    var scrollSpeedRate: Float = 1.0
+    var scrollSpeedRate: Float = 0.85
     
     var isScrollDown: Bool = false
     var isScrollingFast: Bool = false
@@ -36,10 +36,11 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
     var pageMenu: CAPSPageMenu!
     
     override func viewDidLoad() {
-        self.stickBackgrounImageView = false
-        self.setNeedsStatusBarAppearanceUpdate()
         self.initPageMenu()
+        self.stickBackgrounImageView = false
         self.navigationBar.updateCurrentMenuLabel(titles[0])
+        self.navigationBar.delegate = self
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     func initPageMenu() {
@@ -192,4 +193,8 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
+}
+
+extension KMNavigationController: KMNavigationBarDelegate {
+    
 }

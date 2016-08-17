@@ -8,12 +8,30 @@
 
 import UIKit
 
+protocol KMNavigationBarDelegate: class {
+    var showStatusBar: Bool {get set}
+}
+
 @IBDesignable class KMNavigationBar: UIView {
+    
+    var _delegate: KMNavigationBarDelegate?
+    var delegate: KMNavigationBarDelegate? {
+        get {
+            return _delegate
+        }
+        set {
+            self._delegate = newValue
+            self.setupInterface()
+        }
+    }
     
     var view: UIView!
     var isHiddenBar: Bool = false
     
     @IBOutlet weak var statusBarTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var statusBarOverlayHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var navigationBarTopConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var statusBarOverlayView: UIView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -41,6 +59,7 @@ import UIKit
     func setupInterface() {
         self.setupXib()
         self.setupNavigationBar()
+        self.setStatusBarOverlayView()
     }
     
     func setupXib() {
@@ -56,6 +75,14 @@ import UIKit
         let nib = UINib(nibName: className, bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         return view
+    }
+    
+    func setStatusBarOverlayView() {
+        if let delegate = self.delegate {
+            let statusBarHeight: CGFloat = delegate.showStatusBar ? 20 : 0
+            self.statusBarOverlayHeightConstraint.constant = statusBarHeight
+            self.navigationBarTopConstraint.constant = statusBarHeight
+        }
     }
     
     func setupNavigationBar() {

@@ -10,6 +10,8 @@
                 <outlet property="backgroundImageView" destination="sgZ-v9-mHW" id="0PR-ci-VEm"/>
                 <outlet property="currentMenuTitleLabel" destination="44Z-uR-wMP" id="R9m-07-e3k"/>
                 <outlet property="navigationBar" destination="Vvp-Kv-ix7" id="gkE-sH-kBf"/>
+                <outlet property="navigationBarTopConstraint" destination="WPC-Cs-hxO" id="8WL-4r-jQv"/>
+                <outlet property="statusBarOverlayHeightConstraint" destination="Lj2-rX-IxT" id="Jnq-wt-xGI"/>
                 <outlet property="statusBarOverlayView" destination="1ja-t7-Lob" id="wG4-bQ-4vA"/>
                 <outlet property="statusBarTopConstraint" destination="apK-Oh-nKL" id="8Wf-lM-HNO"/>
             </connections>
@@ -35,9 +37,9 @@
                     </variation>
                 </imageView>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vvp-Kv-ix7">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="rK0-2R-BQn"/>
+                        <constraint firstAttribute="height" constant="44" id="rK0-2R-BQn"/>
                     </constraints>
                     <items>
                         <navigationItem title="Title" id="Y2Z-fV-UAs"/>
@@ -96,7 +98,7 @@
                 <constraint firstItem="S0E-QJ-lhV" firstAttribute="top" secondItem="44Z-uR-wMP" secondAttribute="bottom" id="G24-bI-OhM"/>
                 <constraint firstAttribute="trailing" secondItem="S0E-QJ-lhV" secondAttribute="trailing" id="UVr-jM-bfY"/>
                 <constraint firstItem="S0E-QJ-lhV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UYR-59-WI5"/>
-                <constraint firstItem="Vvp-Kv-ix7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WPC-Cs-hxO"/>
+                <constraint firstItem="Vvp-Kv-ix7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="WPC-Cs-hxO"/>
                 <constraint firstItem="1ja-t7-Lob" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="apK-Oh-nKL"/>
                 <constraint firstAttribute="trailing" secondItem="1ja-t7-Lob" secondAttribute="trailing" id="dgZ-ct-iS3"/>
                 <constraint firstItem="sgZ-v9-mHW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jhw-QG-V3c"/>
