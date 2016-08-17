@@ -68,10 +68,10 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
     func getSubControllersFor(titles: [String], delegate: UIViewController) -> [UIViewController] {
         
         var controllers: [UIViewController] = []
-        // let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         for (index, element) in titles.enumerate()  {
-            let viewController = UIViewController()
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("MyAISTableViewController")
             viewController.title = element
             viewController.view.backgroundColor = (index%2==0) ? UIColor.redColor() : UIColor.blueColor()
             controllers.append(viewController)
