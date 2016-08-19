@@ -15,6 +15,6 @@ class MyAISTableViewController1: BaseViewController {
 class MyAISTableViewController2: BaseViewController {
     
     override func viewDidAppear(animated: Bool) {
-        // self.myAISNavigationController?.showNavigaiton(animation: true)
+        self.myAISNavigationController?.showNavigaiton(animation: true)
     }
 }
