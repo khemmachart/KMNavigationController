@@ -97,9 +97,10 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
         return CGRectMake(0, 0, width, height)
     }
     
-    func layoutIfNeededWithAnimation() {
+    func layoutIfNeeded(animation animation: Bool) {
+        let duration = animation ? 0.25 : 0.025
         self.isNavBarAnimating = true
-        UIView.animateWithDuration(0.25, animations: {
+        UIView.animateWithDuration(duration, animations: {
             self.view.layoutIfNeeded()
         }) { (success) in
             self.isNavBarAnimating = false
@@ -152,17 +153,24 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
         let shouldShowNavBar = self.isReachedTopEdge || isFastScrollUp
         
         if (shouldHideNavBar && !self.navigationBar.isHiddenBar) {
-            let navBarTopConstraint = self.calculateNavigationBarTopConstraintAfterHidden()
-            self.navBarTopConstraint.constant = navBarTopConstraint
-            self.navigationBar.hidden(true, withAnimation: true, withNavBarTopConstraint: navBarTopConstraint)
-            self.layoutIfNeededWithAnimation()
-            
+            self.hideNavigation(animation: true)
         }
         else if (shouldShowNavBar && self.navigationBar.isHiddenBar) {
-            self.navBarTopConstraint.constant = 0
-            self.navigationBar.hidden(false, withAnimation: true, withNavBarTopConstraint: 0)
-            self.layoutIfNeededWithAnimation()
+            self.showNavigaiton(animation: true)
         }
+    }
+    
+    func hideNavigation(animation animation: Bool) {
+        let navBarTopConstraint = self.calculateNavigationBarTopConstraintAfterHidden()
+        self.navBarTopConstraint.constant = navBarTopConstraint
+        self.navigationBar.hidden(true, withAnimation: true, withNavBarTopConstraint: navBarTopConstraint)
+        self.layoutIfNeeded(animation: animation)
+    }
+    
+    func showNavigaiton(animation animation: Bool) {
+        self.navBarTopConstraint.constant = 0
+        self.navigationBar.hidden(false, withAnimation: true, withNavBarTopConstraint: 0)
+        self.layoutIfNeeded(animation: animation)
     }
     
     func calculateNavigationBarTopConstraintAfterHidden() -> CGFloat {
