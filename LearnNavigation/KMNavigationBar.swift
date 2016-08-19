@@ -63,10 +63,12 @@ protocol KMNavigationBarDelegate: class {
     }
     
     func setupXib() {
-        self.view = loadViewFromNib()
-        self.view.frame = bounds
-        self.view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
-        self.addSubview(view)
+        if (self.view == nil) {
+            self.view = loadViewFromNib()
+            self.view.frame = bounds
+            self.view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+            self.addSubview(self.view)
+        }
     }
     
     func loadViewFromNib() -> UIView {
