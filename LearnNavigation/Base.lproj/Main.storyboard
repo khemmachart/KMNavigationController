@@ -59,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="1226" y="1014"/>
         </scene>
-        <!--MyAIS Table View Controller-->
+        <!--MyAIS Table View Controller1-->
         <scene sceneID="hDb-KY-iuc">
             <objects>
-                <viewController storyboardIdentifier="MyAISTableViewController" id="OJr-6c-4zV" customClass="MyAISTableViewController" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyAISTableViewController" id="OJr-6c-4zV" customClass="MyAISTableViewController1" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k70-jR-AgZ"/>
                         <viewControllerLayoutGuide type="bottom" id="dVv-vT-13G"/>
@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="1984" y="1014"/>
         </scene>
-        <!--MyAIS Table View Controller-->
+        <!--MyAIS Table View Controller2-->
         <scene sceneID="QBr-5m-iNC">
             <objects>
-                <viewController storyboardIdentifier="MyAISViewController" id="jy0-Vr-g6s" customClass="MyAISTableViewController" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyAISViewController" id="jy0-Vr-g6s" customClass="MyAISTableViewController2" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xN0-5Y-Exp"/>
                         <viewControllerLayoutGuide type="bottom" id="N5F-9u-SEQ"/>

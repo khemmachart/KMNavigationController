@@ -14,6 +14,7 @@
 		F93801CC1D587DE300741C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93801CB1D587DE300741C22 /* Assets.xcassets */; };
 		F93801CF1D587DE300741C22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93801CD1D587DE300741C22 /* LaunchScreen.storyboard */; };
 		F9435DB91D66CC3F00A3DF98 /* MenuLevel1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9435DB81D66CC3F00A3DF98 /* MenuLevel1ViewController.swift */; };
+		F9435DBB1D66E43D00A3DF98 /* MyAISTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9435DBA1D66E43D00A3DF98 /* MyAISTableViewController.swift */; };
 		F98697371D6367B6008BF2CD /* KMNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98697351D6367B6008BF2CD /* KMNavigationBar.swift */; };
 		F98697381D6367B6008BF2CD /* KMNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98697361D6367B6008BF2CD /* KMNavigationBar.xib */; };
 		F9A1A9A11D6442CE00D200AD /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A1A9A01D6442CE00D200AD /* CAPSPageMenu.swift */; };
@@ -30,6 +31,7 @@
 		F93801CE1D587DE300741C22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F93801D01D587DE300741C22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9435DB81D66CC3F00A3DF98 /* MenuLevel1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuLevel1ViewController.swift; sourceTree = "<group>"; };
+		F9435DBA1D66E43D00A3DF98 /* MyAISTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAISTableViewController.swift; sourceTree = "<group>"; };
 		F98697351D6367B6008BF2CD /* KMNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMNavigationBar.swift; sourceTree = "<group>"; };
 		F98697361D6367B6008BF2CD /* KMNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMNavigationBar.xib; sourceTree = "<group>"; };
 		F9A1A9A01D6442CE00D200AD /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				F93801C41D587DE300741C22 /* AppDelegate.swift */,
 				F9A1A9A21D6444F200D200AD /* BaseViewController.swift */,
 				F9A1A9A01D6442CE00D200AD /* CAPSPageMenu.swift */,
+				F9435DBA1D66E43D00A3DF98 /* MyAISTableViewController.swift */,
 				F9229B1B1D59358000DA8C8F /* background.jpg */,
 				F9435DB81D66CC3F00A3DF98 /* MenuLevel1ViewController.swift */,
 				F93801C81D587DE300741C22 /* Main.storyboard */,
@@ -159,6 +162,7 @@
 				F98697371D6367B6008BF2CD /* KMNavigationBar.swift in Sources */,
 				F9435DB91D66CC3F00A3DF98 /* MenuLevel1ViewController.swift in Sources */,
 				F93801C71D587DE300741C22 /* KMNavigationController.swift in Sources */,
+				F9435DBB1D66E43D00A3DF98 /* MyAISTableViewController.swift in Sources */,
 				F9A1A9A11D6442CE00D200AD /* CAPSPageMenu.swift in Sources */,
 				F93801C51D587DE300741C22 /* AppDelegate.swift in Sources */,
 			);
