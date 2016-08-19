@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Menu Level1 View Controller-->
         <scene sceneID="I71-yK-tng">
             <objects>
-                <viewController id="FW1-jg-bYx" customClass="KMNavigationController" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FW1-jg-bYx" customClass="MenuLevel1ViewController" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a6L-jx-v7t"/>
                         <viewControllerLayoutGuide type="bottom" id="hC6-ZS-hbJ"/>
@@ -102,6 +102,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq2-IF-TDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1984" y="1014"/>
+        </scene>
+        <!--MyAIS Table View Controller-->
+        <scene sceneID="QBr-5m-iNC">
+            <objects>
+                <viewController storyboardIdentifier="MyAISViewController" id="jy0-Vr-g6s" customClass="MyAISTableViewController" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xN0-5Y-Exp"/>
+                        <viewControllerLayoutGuide type="bottom" id="N5F-9u-SEQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rkE-FE-Iq0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SLR-ue-9u3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2696" y="1014"/>
         </scene>
     </scenes>
 </document>

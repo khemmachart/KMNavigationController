@@ -16,9 +16,18 @@ class MyAISTableViewController: UIViewController {
 extension MyAISTableViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if let delegate = self.delegate {
+        if self.shouldHideNavigationBar(scrollView: scrollView),
+            let delegate = self.delegate {
             delegate.scrollViewDidScroll(scrollView)
         }
+    }
+    
+    // The navigation bar should be hidden only if the content height is higher than frame size
+    // If it true, then call the delegate (Navigation Controller) to action to the navigaiton bar
+    func shouldHideNavigationBar(scrollView scrollView: UIScrollView) -> Bool {
+        let contentHeight = scrollView.contentSize.height
+        let frameHeight   = self.view.frame.size.height
+        return contentHeight > frameHeight
     }
 }
 
@@ -31,6 +40,6 @@ extension MyAISTableViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return 10
     }
 }
