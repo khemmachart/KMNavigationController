@@ -80,7 +80,8 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         for (index, element) in titles.enumerate()  {
-            let viewController = storyboard.instantiateViewControllerWithIdentifier("MyAISTableViewController") as! MyAISTableViewController
+            let viewId = (index%2 == 0) ? "MyAISTableViewController" : "MyAISViewController"
+            let viewController = storyboard.instantiateViewControllerWithIdentifier(viewId) as! MyAISTableViewController
             viewController.title = element
             viewController.delegate = self
             viewController.view.backgroundColor = (index%2==0) ? UIColor.redColor() : UIColor.blueColor()
@@ -126,13 +127,12 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate, CAPSPageMe
         let timeDiff = currentTime - lastOffsetCapture!
         let captureInterval = 0.1
         
-        if(timeDiff > captureInterval) {
+        if (timeDiff > captureInterval) {
             let distance = currentOffset.y - lastOffset!.y     // calc distance
             let scrollSpeedNotAbs = (distance * 10) / 1000     // pixels per ms*10
             let scrollSpeed = fabsf(Float(scrollSpeedNotAbs))  // absolute value
     
             self.isScrollingFast = scrollSpeed > self.scrollSpeedRate ? true : false
-            // self.isScrollingFast ? print("Fast") : print("Slow")
             self.lastOffset = currentOffset
             self.lastOffsetCapture = currentTime
         }
