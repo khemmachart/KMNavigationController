@@ -86,17 +86,9 @@ protocol KMNavigationBarDelegate: class {
     }
     
     func setupNavigationBar() {
-        let leftButton   = UIBarButtonItem(title: "E", style: .Plain, target: self, action: nil)
-        let rightButton1 = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: nil)
-        let rightButton2 = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: nil)
-        let navigationItem = UINavigationItem()
-        navigationItem.rightBarButtonItems = [rightButton1, rightButton2]
-        navigationItem.leftBarButtonItem = leftButton
-        
         self.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationBar.shadowImage = UIImage()
         self.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationBar.setItems([navigationItem], animated: false)
         
         UINavigationBar.appearance().titleTextAttributes = [
             // NSFontAttributeName : UIFont.appNavBarTitle(),
