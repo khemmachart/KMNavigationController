@@ -8,17 +8,17 @@
 
 import UIKit
 
-class MyAISTableViewController: UIViewController {
+class BaseViewController: UIViewController {
     
-    var delegate: KMNavigationController?
+    var myAISNavigationController: KMNavigationController?
 }
 
-extension MyAISTableViewController: UIScrollViewDelegate {
+extension BaseViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if self.shouldHideNavigationBar(scrollView: scrollView),
-            let delegate = self.delegate {
-            delegate.scrollViewDidScroll(scrollView)
+            let navController = self.myAISNavigationController {
+            navController.scrollViewDidScroll(scrollView)
         }
     }
     
@@ -31,7 +31,7 @@ extension MyAISTableViewController: UIScrollViewDelegate {
     }
 }
 
-extension MyAISTableViewController: UITableViewDataSource {
+extension BaseViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")!

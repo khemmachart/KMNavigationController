@@ -17,7 +17,7 @@
 		F98697371D6367B6008BF2CD /* KMNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98697351D6367B6008BF2CD /* KMNavigationBar.swift */; };
 		F98697381D6367B6008BF2CD /* KMNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98697361D6367B6008BF2CD /* KMNavigationBar.xib */; };
 		F9A1A9A11D6442CE00D200AD /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A1A9A01D6442CE00D200AD /* CAPSPageMenu.swift */; };
-		F9A1A9A31D6444F200D200AD /* MyAISTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A1A9A21D6444F200D200AD /* MyAISTableViewController.swift */; };
+		F9A1A9A31D6444F200D200AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A1A9A21D6444F200D200AD /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		F98697351D6367B6008BF2CD /* KMNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMNavigationBar.swift; sourceTree = "<group>"; };
 		F98697361D6367B6008BF2CD /* KMNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMNavigationBar.xib; sourceTree = "<group>"; };
 		F9A1A9A01D6442CE00D200AD /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
-		F9A1A9A21D6444F200D200AD /* MyAISTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAISTableViewController.swift; sourceTree = "<group>"; };
+		F9A1A9A21D6444F200D200AD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				F93801C41D587DE300741C22 /* AppDelegate.swift */,
-				F9A1A9A21D6444F200D200AD /* MyAISTableViewController.swift */,
+				F9A1A9A21D6444F200D200AD /* BaseViewController.swift */,
 				F9A1A9A01D6442CE00D200AD /* CAPSPageMenu.swift */,
 				F9229B1B1D59358000DA8C8F /* background.jpg */,
 				F9435DB81D66CC3F00A3DF98 /* MenuLevel1ViewController.swift */,
@@ -155,7 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9A1A9A31D6444F200D200AD /* MyAISTableViewController.swift in Sources */,
+				F9A1A9A31D6444F200D200AD /* BaseViewController.swift in Sources */,
 				F98697371D6367B6008BF2CD /* KMNavigationBar.swift in Sources */,
 				F9435DB91D66CC3F00A3DF98 /* MenuLevel1ViewController.swift in Sources */,
 				F93801C71D587DE300741C22 /* KMNavigationController.swift in Sources */,
