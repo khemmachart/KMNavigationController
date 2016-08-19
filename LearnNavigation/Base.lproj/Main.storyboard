@@ -1,64 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FW1-jg-bYx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Menu Level1 View Controller-->
-        <scene sceneID="I71-yK-tng">
-            <objects>
-                <viewController id="FW1-jg-bYx" customClass="MenuLevel1ViewController" customModule="LearnNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="a6L-jx-v7t"/>
-                        <viewControllerLayoutGuide type="bottom" id="hC6-ZS-hbJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZKD-Lg-Hzk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPk-Sn-tsx" customClass="KMNavigationBar" customModule="LearnNavigation" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="152"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="152" id="vC2-1L-X7h"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M75-v5-XV3">
-                                <rect key="frame" x="0.0" y="152" width="600" height="448"/>
-                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dPk-Sn-tsx" secondAttribute="trailing" id="6cD-kN-9dm"/>
-                            <constraint firstItem="dPk-Sn-tsx" firstAttribute="leading" secondItem="ZKD-Lg-Hzk" secondAttribute="leadingMargin" id="8rP-Ay-7Cr"/>
-                            <constraint firstItem="hC6-ZS-hbJ" firstAttribute="top" secondItem="M75-v5-XV3" secondAttribute="bottom" id="8u2-UJ-oJ1"/>
-                            <constraint firstItem="M75-v5-XV3" firstAttribute="leading" secondItem="ZKD-Lg-Hzk" secondAttribute="leading" id="EzF-FT-2L8"/>
-                            <constraint firstAttribute="trailing" secondItem="M75-v5-XV3" secondAttribute="trailing" id="Kdp-cS-kLw"/>
-                            <constraint firstItem="M75-v5-XV3" firstAttribute="top" secondItem="dPk-Sn-tsx" secondAttribute="bottom" id="dhc-4c-AVQ"/>
-                            <constraint firstItem="dPk-Sn-tsx" firstAttribute="leading" secondItem="ZKD-Lg-Hzk" secondAttribute="leading" id="eK1-XT-3ll"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dPk-Sn-tsx" secondAttribute="trailing" id="jaT-cV-tAN"/>
-                            <constraint firstItem="dPk-Sn-tsx" firstAttribute="top" secondItem="ZKD-Lg-Hzk" secondAttribute="topMargin" id="qEV-Ch-BMh"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="8rP-Ay-7Cr"/>
-                                <exclude reference="jaT-cV-tAN"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="contentView" destination="M75-v5-XV3" id="tnD-4G-92H"/>
-                        <outlet property="navBarTopConstraint" destination="qEV-Ch-BMh" id="1lC-t9-E3e"/>
-                        <outlet property="navigationBar" destination="dPk-Sn-tsx" id="v40-Nm-tKh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TKP-Gt-sqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1226" y="1014"/>
-        </scene>
         <!--MyAIS Table View Controller1-->
         <scene sceneID="hDb-KY-iuc">
             <objects>
