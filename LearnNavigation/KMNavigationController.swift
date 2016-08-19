@@ -33,7 +33,6 @@ class KMNavigationController: UIViewController, UIScrollViewDelegate {
     var isScrollUp: Bool = false
     
     override func viewDidLoad() {
-        self.stickBackgrounImageView = false
         self.navigationBar.delegate = self
         self.setNeedsStatusBarAppearanceUpdate()
     }

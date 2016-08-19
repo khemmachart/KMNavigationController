@@ -15,10 +15,20 @@ class MenuLevel1ViewController: KMNavigationController, CAPSPageMenuDelegate {
     
     override func viewDidLoad() {
         self.initPageMenu()
+        self.initNavigationItems()
         self.stickBackgrounImageView = false
         self.navigationBar.updateCurrentMenuLabel(titles[0])
-        self.navigationBar.delegate = self
-        self.setNeedsStatusBarAppearanceUpdate()
+        super.viewDidLoad()
+    }
+    
+    func initNavigationItems() {
+        let leftButton   = UIBarButtonItem(title: "E", style: .Plain, target: self, action: nil)
+        let rightButton1 = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: nil)
+        let rightButton2 = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: nil)
+        let navigationItem = UINavigationItem()
+        navigationItem.rightBarButtonItems = [rightButton1, rightButton2]
+        navigationItem.leftBarButtonItem = leftButton
+        self.navigationBar.navigationBar.setItems([navigationItem], animated: false)
     }
     
     func initPageMenu() {
@@ -48,10 +58,6 @@ class MenuLevel1ViewController: KMNavigationController, CAPSPageMenuDelegate {
         self.contentView.addSubview(pageMenu.view)
     }
     
-    func didMoveToPage(controller: UIViewController, index: Int) {
-        self.showNavigaiton(animation: true)
-    }
-    
     func willMoveToPage(controller: UIViewController, index: Int){
         self.navigationBar.updateCurrentMenuLabel(titles[index])
     }
@@ -62,11 +68,11 @@ class MenuLevel1ViewController: KMNavigationController, CAPSPageMenuDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         for (index, element) in titles.enumerate()  {
-            let viewId = (index%2 == 0) ? "MyAISTableViewController" : "MyAISViewController"
-            let viewController = storyboard.instantiateViewControllerWithIdentifier(viewId) as! MyAISTableViewController
+            let viewId = (index%3 == 0) ? "MyAISViewController" : "MyAISTableViewController"
+            let viewController = storyboard.instantiateViewControllerWithIdentifier(viewId) as! BaseViewController
             viewController.title = element
-            viewController.delegate = self
-            viewController.view.backgroundColor = (index%2==0) ? UIColor.redColor() : UIColor.blueColor()
+            viewController.myAISNavigationController = self
+            viewController.view.backgroundColor = (index%3==0) ? UIColor.blueColor() : UIColor.redColor()
             controllers.append(viewController)
         }
         
